@@ -7,6 +7,16 @@
   <a routerLink="/movies" mat-button>
     Movies
   </a>
+
+  <ng-container *ngIf="currentDetails$ | async as details">
+    <span class="current-details" *ngIf="details.character">
+      Current Character: {{details.character.name}}
+    </span>
+
+    <span class="current-details" *ngIf="details.movie">
+      Current Movie: {{details.movie.title}}
+    </span>
+  </ng-container>
 </mat-toolbar>
 
 <div class="content">

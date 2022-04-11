@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoutingService } from './routing.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  constructor(private routingService: RoutingService) {
+  }
+
+  currentDetails$ = this.routingService.detailsData$;
 }
