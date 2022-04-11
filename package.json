@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /angular-resolver-arch/",
+    "build": "ng build --base-href /angular-resolver-arch/ && npm run copy:404",
+    "copy:404": "shx cp dist/angular-resolver-arch/index.html dist/angular-resolver-arch/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
@@ -40,6 +41,7 @@
     "karma-coverage": "2.2.0",
     "karma-jasmine": "4.0.2",
     "karma-jasmine-html-reporter": "1.7.0",
+    "shx": "0.3.4",
     "typescript": "4.6.3"
   }
 }
