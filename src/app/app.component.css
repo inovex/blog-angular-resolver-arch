@@ -1,6 +1,11 @@
+.active-link {
+  text-decoration: underline;
+}
+
 .current-details {
   font-size: 14px;
   margin-left: 20px;
+  opacity: .6;
 }
 
 .content {
@@ -15,3 +20,4 @@
 .left-content::ng-deep a, .left-content::ng-deep a:visited {
   color: rgb(0, 102, 204);
 }
+

@@ -1,6 +1,9 @@
 <ul>
   <li *ngFor="let movie of movies$ | async">
-    <a [routerLink]="['/', { outlets: { details: ['movies', getId(movie.url)] } }]">
+    <a
+      [routerLink]="['/', { outlets: { details: ['movies', getId(movie.url)] } }]"
+      routerLinkActive="active-link"
+    >
       {{movie.title}}
     </a>
   </li>

@@ -1,6 +1,9 @@
 <ul>
   <li *ngFor="let character of characters$ | async">
-    <a [routerLink]="['/', { outlets: { details: ['characters', getId(character.url)] } }]">
+    <a
+      [routerLink]="['/', { outlets: { details: ['characters', getId(character.url)] } }]"
+      routerLinkActive="active-link"
+    >
       {{character.name}}
     </a>
   </li>
