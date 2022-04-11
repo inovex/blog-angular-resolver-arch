@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let character of characters$ | async">
+    <a [routerLink]="['/', { outlets: { details: ['characters', getId(character.url)] } }]">
+      {{character.name}}
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/', { outlets: { details: ['characters', 999] } }]">Wrong Character</a>
+  </li>
+</ul>

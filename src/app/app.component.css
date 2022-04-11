@@ -1,0 +1,8 @@
+.content {
+  display: flex;
+}
+
+.content > * {
+  flex: 1;
+  min-width: 0;
+}
