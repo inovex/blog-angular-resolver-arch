@@ -5,4 +5,8 @@
   <p>{{character.height}}</p>
 </ng-container>
 
-<a mat-raised-button [routerLink]="['/', { outlets: { details: null }}]">Close</a>
+<div class="buttons">
+  <a mat-raised-button [routerLink]="['/', { outlets: { details: null }}]">Close</a>
+
+  <button mat-raised-button (click)="reload()">Reload</button>
+</div>

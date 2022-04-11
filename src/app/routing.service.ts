@@ -31,4 +31,22 @@ export class RoutingService {
       return detailsDataObservable ?? of(undefined);
     }),
   );
+
+  async reload() {
+    const route = findDetailsRoute(this.router.routerState.root);
+
+    if (!route?.routeConfig) {
+      return;
+    }
+
+    const runGuardsAndResolvers = route.routeConfig.runGuardsAndResolvers;
+    route.routeConfig.runGuardsAndResolvers = 'always';
+
+    const commands = route.snapshot.url.map(segment => segment.path);
+    await this.router.navigate(
+      ['/', { outlets: { details: commands } }],
+      { queryParamsHandling: 'preserve' });
+
+    route.routeConfig.runGuardsAndResolvers = runGuardsAndResolvers;
+  }
 }
