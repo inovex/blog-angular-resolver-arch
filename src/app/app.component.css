@@ -11,3 +11,7 @@
   flex: 1;
   min-width: 0;
 }
+
+.left-content::ng-deep a, .left-content::ng-deep a:visited {
+  color: rgb(0, 102, 204);
+}
