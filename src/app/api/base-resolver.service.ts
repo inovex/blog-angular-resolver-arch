@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { catchError, delay, EMPTY, finalize, from, isObservable, Observable } from 'rxjs';
+import { catchError, EMPTY, finalize, from, isObservable, Observable } from 'rxjs';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { LoadingBarState } from '@ngx-loading-bar/core/loading-bar.state';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,7 +22,6 @@ export abstract class BaseResolver<T> implements Resolve<T> {
 
     this.loadingBar.start();
     return observable.pipe(
-      delay(1_000),
       catchError(e => this.handleResolverError(e)),
       finalize(() => this.loadingBar.complete()),
     );
