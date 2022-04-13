@@ -1,9 +1,7 @@
-<ng-container *ngIf="character$ | async as character">
-  <h2>Name</h2>
-  <p>{{character.name}}</p>
-  <h2>Height</h2>
-  <p>{{character.height}}</p>
-</ng-container>
+<h2>Name</h2>
+<p>{{character.name}}</p>
+<h2>Height</h2>
+<p>{{character.height}}</p>
 
 <div class="buttons">
   <a mat-raised-button [routerLink]="['/', { outlets: { details: null }}]">Close</a>

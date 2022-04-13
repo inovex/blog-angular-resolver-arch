@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs';
 import { Character } from '../../api/star-wars.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoutingService } from '../../routing.service';
@@ -10,7 +9,8 @@ import { RoutingService } from '../../routing.service';
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css'],
 })
-export class CharacterComponent {
+export class CharacterComponent implements OnInit {
+  character!: Character;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,12 +19,14 @@ export class CharacterComponent {
   ) {
   }
 
-  character$ = this.route.data.pipe(
-    map(data => data['character'] as Character),
-    tap(character => this.snackbar.open(`Character ${character.name} loaded`, undefined, { duration: 1_000 })),
-  );
+  ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.character = data['character'];
+      this.snackbar.open(`Character ${this.character.name} loaded`, undefined, { duration: 1_000 });
+    });
+  }
 
   async reload() {
-    await this.routingService.reload();
+    await this.routingService.reloadDetails();
   }
 }
