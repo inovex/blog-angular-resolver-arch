@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /angular-resolver-arch/ && npm run copy:404",
+    "build": "ng build --base-href /blog-angular-resolver-arch/ && npm run copy:404",
     "copy:404": "shx cp dist/angular-resolver-arch/index.html dist/angular-resolver-arch/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
